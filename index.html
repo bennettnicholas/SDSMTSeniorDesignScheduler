@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Nicholas Bennett - Home</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+    <link href="assets/css/StyleSheet.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body background="photos/boom.jpg">
+    
+    <div class="topnav">
+      <a class="active" href="./index.html">Home</a>
+      <a href="./linked_pages/3dprinting/3dprinting.html">3D Printing</a>
+      <a href="./linked_pages/music/music.html">Music</a>
+      <a href="./linked_pages/work/work.html">Experience</a>
+      <a href="./linked_pages/test/test.html">SDSMT SCHEDULING TEST</a>
+    </div>
+
+    <div class = "row">
+      <div class="columnmain"> <img style=" height: 55vh; width:100%; margin-left: auto; margin-right: auto;" src="photos/profile.jpg" alt="Welcome" border="5"> </div>
+      <div class="columnmain" > <h3>Nick is a fast-paced learner that can quickly grasp anything that he sets his heart to. He's an extremely well-rounded overachiever, not only excelling in his coursework at South Dakota School of Mines and Technology, but also proving himself in the industry through his work at Collins Aerospace. It's clear that his vast amount of experience and industry knowledge has prepared him well. He's clearly very passionate about his work and his hobbies, and can always be found dreaming up the next big thing or trying to drum up a new project to work on or skill to master. <br></br>Overall, Nick is a pleasure to work with, and I firmly believe that any company or team would be extremely lucky to have him. <br></br> ~Alexis Renderos (Colleague) </h3>
+      </div>
+      <div class="columnmain" id="map" style=" height: 55vh; width:24%; margin-left: auto; margin-right: auto; padding: .5%;"></div>
+      <div class="columnmain">
+        <h2><font color="white">Click on the markers to for more link to their respective pages.</font></h2>
+        <h2><font color="#00d103">Home</font></h2>
+        <h2><font color="#99352f">Internships / Co-ops</font></h2>
+        <h2><font color="#003d9e">School</font></h2>
+        <h2><font color="#652b9e">Current Location</font></h2>
+      </div>
+    </div>
+    
+    <script>
+      let url_yellow = "http://maps.google.com/mapfiles/ms/icons/";
+      url_yellow += "yellow" + "-dot.png";
+
+      let url_green = "http://maps.google.com/mapfiles/ms/icons/";
+      url_green += "green" + "-dot.png";
+
+      let url_purple = "http://maps.google.com/mapfiles/ms/icons/";
+      url_purple += "purple" + "-dot.png";
+
+
+      var map;
+      function initMap() {
+
+        var home_location = {lat: 44.519269, lng: -93.24849};
+        var school_location = {lat: 44.0743, lng: -103.2059};
+        var collins_location = {lat: 42.012156, lng: -91.646986};
+        var nucor_location = {lat: 42.069216, lng: -97.367723};
+        var bobcat_location = {lat: 46.800393, lng: -100.756208};
+        
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 44.381266, lng: -97.922211},
+          zoom: 5
+        });
+
+        var home_marker = new google.maps.Marker({
+          position: home_location,
+          map: map,
+          icon: {                             
+            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"   
+          }
+        });
+        var school_marker = new google.maps.Marker({
+          position: school_location,
+          map: map,
+          icon: {                             
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"   
+          }
+        });
+        var collins_marker = new google.maps.Marker({
+          position: collins_location,
+          map: map,
+          icon: {                             
+            url: "http://maps.google.com/mapfiles/ms/icons/purple-dot.png"   
+          }
+        });
+        var nucor_marker = new google.maps.Marker({
+          position: nucor_location,
+          map: map,
+          icon: {                             
+            url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"   
+          }
+        });
+        var bobcat_marker = new google.maps.Marker({
+          position: bobcat_location,
+          map: map,
+          icon: {                             
+            url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"   
+          }
+        });
+
+        var home_comment = new google.maps.InfoWindow({
+        content: "<span>Home</span>"
+        })
+        var school_comment = new google.maps.InfoWindow({
+        content: '<a href="linked_pages/sdsmt/sdsmt.html" class="button">SDSMT</a>' +
+         "<span> || Computer Engineering || 2016-2021 || 3.825 GPA</span>"
+        })
+        var collin_comment = new google.maps.InfoWindow({
+        content: '<a href="linked_pages/collins/collins.html" class="button">Software Engineering Co-op</a>' + 
+        "<span> || May 2019 - Dec 2019 || Collins Aerospace ***Current Location*** </span>"
+        })
+        var nucor_comment = new google.maps.InfoWindow({
+        content: '<a href="linked_pages/nucor/nucor.html" class="button">Electrical/Computer Engineering Intern</a>' +
+         "<span> || May 2018 - Aug 2018 || Nucor Steel</span>" 
+        })
+        var bobcat_comment = new google.maps.InfoWindow({
+        content: '<a href="linked_pages/bobcat/bobcat.html" class="button">Information Technology Co-op</a>' + 
+        "<span> || May 2017 - Dec 2017 || Doosan Bobcat</span>"
+        })
+        var current_comment = new google.maps.InfoWindow({
+        content: "<span>I am Here :)</span>"
+        })
+        
+
+        google.maps.event.addListener(home_marker, 'click', function() {
+        home_comment.open(map,home_marker);
+        });
+        google.maps.event.addListener(school_marker, 'click', function() {
+        school_comment.open(map,school_marker);
+        });
+        google.maps.event.addListener(collins_marker, 'click', function() {
+        collin_comment.open(map,collins_marker);
+        });
+        google.maps.event.addListener(nucor_marker, 'click', function() {
+        nucor_comment.open(map,nucor_marker);
+        });
+        google.maps.event.addListener(bobcat_marker, 'click', function() {
+        bobcat_comment.open(map,bobcat_marker);
+        });
+        google.maps.event.addListener(curent_marker, 'click', function() {
+        current_comment.open(map,curent_marker);
+        });
+        
+      }
+      
+    </script>
+
+    <script type="text/javascript">
+      app.get('/login', function(req, res) {
+        var scopes = 'user-read-private user-read-email';
+        res.redirect('https://accounts.spotify.com/authorize' +
+          '?response_type=code' +
+          '&client_id=' + my_client_id +
+          (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+          '&redirect_uri=' + encodeURIComponent(redirect_uri));
+        });
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyl0sGwn3j9j-dUiCDZWu3NLq7qObBrhE&callback=initMap"
+    async defer></script>
+  </body>
+</html>
